@@ -1,0 +1,25 @@
+---
+title: "Welcome to Juyoung's Website!"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+This is Juyoung Hahm's website.
+
+# Introduction
+![](./Juyoung.jpg)
+Hi, my name is Juyoung L. Hahm and I go by Rosemary. I came from Lubbock, TX and I graduated at University of Texas at Austin with BS Mathematics. I lived in both US and Korea, so I can both speak English and Korean. Currently, I am a MS in Biostatistics in Columbia University. Please feel free to surf my website!!
+
+# Busan, South Korea
+![](./Busan.jpg)
+I am currently living in Busan, Korea. This photo is from Haeundae Beach.
+
+
+# Link to Page: Academic and Professional Experience
+[About me](about_me.html)
+
+
+
+

@@ -1,0 +1,18 @@
+name: "This is Juyoung's Website!"
+output_dir: "."
+navbar:
+  title: "Home"
+  right:
+    - text: "About"
+      href: about_me.html
+    - text: "Plotly"
+      href: plotly.html      
+    - icon: fa-envelope fa-lg
+      href: mailto:<jlh2270@cumc.columbia.edu>
+    - icon: fa-github fa-lg
+      href: https://github.com/Juyoung-Hahm?tab=repositories
+    - icon: fa-linkedin fa-lg
+      href: https://www.linkedin.com/in/juyounghahm/
+output:
+  html_document:
+    theme: cerulean

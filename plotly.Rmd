@@ -1,0 +1,55 @@
+---
+title: ""
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+# Load and Tidy the data
+We are going to look at The Instacart Online Grocery Shopping Dataset 2017, called `instacart`.
+```{r include = F}
+library(tidyverse)
+library(plotly)
+library(dplyr)
+library(p8105.datasets)
+```
+
+Tidy and create the data, `instacart_n` and see the relationship between `order_number` and `reordered` among `aisle`.
+```{r}
+instacart_ordernum = 
+  aggregate(instacart$order_number, by = list(aisle = instacart$aisle), FUN = sum)
+names(instacart_ordernum)[names(instacart_ordernum) == 'x'] <- 'order_n'
+
+instacart_reorder = 
+  aggregate(instacart$reordered, by = list(aisle = instacart$aisle), FUN = sum) 
+names(instacart_reorder)[names(instacart_reorder) == 'x'] <- 'reordered_n'
+
+instacart_n = cbind(instacart_ordernum, instacart_reorder) %>%
+  select(-3) %>%
+  filter(
+    order_n < 20000,
+    reordered_n < 10000
+  )
+```
+
+# Plotly plots
+## Scatter plots
+```{r warning = F}
+instacart_n %>%
+  plot_ly(x = ~ order_n, y = ~ reordered_n, type = "scatter", mode = "markers")
+```
+
+## Bar chart
+```{r warning = F}
+instacart_n %>%
+  plot_ly(x = ~ aisle, y = ~ reordered_n, type = "bar", color = ~ aisle)
+```
+
+## 3D Surface Plot
+```{r warning = F}
+instacart_n %>% 
+  plot_ly(z = ~volcano) %>%
+  add_surface()
+```
+
